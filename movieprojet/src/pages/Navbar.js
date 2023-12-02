@@ -1,9 +1,13 @@
 import React ,{ useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 
 function Navbar(){
     const [genres, setGenres] = useState([]);
+    const [selectedType, setSelectedType] = useState("");
+    const [selectedGenre, setSelectedGenre] = useState("");
+    const router = useRouter();
     useEffect(() => {
         const options = {
           method: 'GET',
@@ -19,18 +23,26 @@ function Navbar(){
           .catch(error => console.error(error));
       }, []);
      
-   
+      const handleTypeChange = (e) => {
+        const type = e.target.value;
+        setSelectedType(type);
+        router.push(`/movies/${type}`);
+      };
+      const handleGenreChange = (e) => {
+        const genre = e.target.value;
+        setSelectedGenre(genre);
+        router.push(`/movies/${selectedType}`);
+      };
    return (<nav style={{display:"flex", width:"100vw" ,justifyContent:"center", backgroundColor:"whitesmoke" }}>
    <Link href="/" className="logo" style={{padding: "5px"}}>
 
 <img src="https://png.pngtree.com/png-clipart/20200225/ourlarge/pngtree-movie-icon-design-png-image_2153114.jpg" style={{width:"50px"}} />
       </Link>
 
-      <div className="genres-dropdown" style={{padding: "10px"}} >
-      
-        <select>
+      <div className="genres-dropdown" style={{ padding: "10px" }}>
+        <select value={selectedGenre} onChange={handleGenreChange}>
           <option value="">Select Genre</option>
-          {genres.map(genre => (
+          {genres.map((genre) => (
             <option key={genre.id} value={genre.id}>
               {genre.name}
             </option>
@@ -38,19 +50,17 @@ function Navbar(){
         </select>
       </div>
 
-      <div className="movie-links" style={{padding: "10px"}}>
-
-        <select name="movieId">
-          <option value="Top Rate">Top Rate</option>
-          <option value="Popular">Popular</option>
-          <option value="Latest">Latest</option>
-          <option value="Now playing">Now playing</option>
-          <option value="Upcoming">Upcoming</option>
+      <div className="movie-links" style={{ padding: "10px" }}>
+        <select value={selectedType} onChange={handleTypeChange}>
+          <option value="">Select Type</option>
+          <option value="top_rated">Top Rated</option>
+          <option value="popular">Popular</option>
+          <option value="upcoming">Up Coming</option>
+          <option value="now_playing">Now Playing</option>
+         
         </select>
 
       </div>
-
-  
       <Link href="/Movies" style={{padding: "10px"}}>
         Movies
       </Link>
