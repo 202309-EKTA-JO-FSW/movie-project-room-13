@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Navbar from './Navbar'
-import Footer from './Footer'
+import Footer from './Footer.jsx'
+
 
 
 export default function Home() {
@@ -24,6 +25,7 @@ export default function Home() {
   console.log(movies);
   return (
    <div style={{height:"100vh"}} > 
+  
  <Navbar />
  {movies && movies.title && (
           <div key={movies.id}>
