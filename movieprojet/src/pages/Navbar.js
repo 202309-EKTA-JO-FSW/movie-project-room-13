@@ -1,6 +1,7 @@
 import React ,{ useState, useEffect } from "react";
 import Link from "next/link";
 
+
 function Navbar(){
     const [genres, setGenres] = useState([]);
     useEffect(() => {
@@ -20,10 +21,10 @@ function Navbar(){
      
    
    return (<nav style={{display:"flex", width:"100vw" ,justifyContent:"center", backgroundColor:"whitesmoke" }}>
-      <div className="logo" style={{padding: "10px"}}>
+   <Link href="/" className="logo" style={{padding: "5px"}}>
 
 <img src="https://png.pngtree.com/png-clipart/20200225/ourlarge/pngtree-movie-icon-design-png-image_2153114.jpg" style={{width:"50px"}} />
-      </div>
+      </Link>
 
       <div className="genres-dropdown" style={{padding: "10px"}} >
       
@@ -37,9 +38,28 @@ function Navbar(){
         </select>
       </div>
 
-      <div className="nav-links" style={{padding: "10px"}}>
+      <div className="movie-links" style={{padding: "10px"}}>
+
+        <select name="movieId">
+          <option value="Top Rate">Top Rate</option>
+          <option value="Popular">Popular</option>
+          <option value="Latest">Latest</option>
+          <option value="Now playing">Now playing</option>
+          <option value="Upcoming">Upcoming</option>
+        </select>
 
       </div>
+
+  
+      <Link href="/Movies" style={{padding: "10px"}}>
+        Movies
+      </Link>
+      <Link href="/Actors" style={{padding: "10px"}}>
+        Actors
+      </Link>
+    
+ 
+      
     </nav>)
 }
 export default Navbar
