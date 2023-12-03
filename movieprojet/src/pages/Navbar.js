@@ -3,10 +3,16 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 
-function Navbar(){
+function Navbar({onSearch}){
     const [genres, setGenres] = useState([]);
     const [selectedType, setSelectedType] = useState("");
     const [selectedGenre, setSelectedGenre] = useState("");
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const handleSearch = (e) => {
+      setSearchTerm(e.target.value);
+      onSearch(e.target.value);
+    };
     const router = useRouter();
     useEffect(() => {
         const options = {
@@ -68,7 +74,12 @@ function Navbar(){
         Actors
       </Link>
     
- 
+      <input style={{height:"25px"}}
+        type="text"
+        placeholder="Search movies..."
+        value={searchTerm}
+        onChange={handleSearch}
+      />
       
     </nav>)
 }

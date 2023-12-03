@@ -3,18 +3,25 @@ import { useRouter } from "next/router";
 import { MoviesByType } from "../api/movies";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
+import { useState } from "react";
 
 const Movies = ({ movies }) => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const filteredMovies = movies.filter((movie) =>
+    movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
-
+  const handleSearch = (term) => {
+    setSearchTerm(term);
+  };
   return (
   
     <div >
-          <Navbar />
+          <Navbar onSearch={handleSearch} />
    
    
       <ul style={{display:"flex", flexWrap:"wrap", padding:"16px"}}>
-        {movies.map((movie) => ( 
+        {filteredMovies.map((movie) => ( 
             <li  style={{width:"25%"}} key={movie.id}>
       <img
                   src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
