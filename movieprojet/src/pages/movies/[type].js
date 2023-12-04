@@ -1,4 +1,4 @@
-// pages/movies/[type].js
+
 import { useRouter } from "next/router";
 import { MoviesByType } from "../api/movies";
 import Navbar from "../Navbar";
