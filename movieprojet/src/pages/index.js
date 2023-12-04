@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
-import Navbar from './Navbar'
-import Footer from './Footer'
 
 
 export default function Home() {
@@ -24,7 +22,7 @@ export default function Home() {
   console.log(movies);
   return (
    <div style={{height:"100vh"}} > 
- <Navbar />
+ 
  {movies && movies.title && (
           <div key={movies.id}>
            
@@ -39,7 +37,8 @@ export default function Home() {
             <p>{movies.original_language}</p>
           </div>
         )}
- <Footer  />
    </div>)
+  
+
 }
-//console.log("Lubna");
+
