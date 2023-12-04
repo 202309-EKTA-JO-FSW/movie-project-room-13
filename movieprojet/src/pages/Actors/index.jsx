@@ -25,7 +25,7 @@ const ActorList = () => {
     };
 
     fetchData();
-  }, []); // Empty dependency array to run useEffect only once
+  }, []); 
 
   return (
     <div>
@@ -33,7 +33,6 @@ const ActorList = () => {
       <ul>
         {actors.map((actor) => (
           <li key={actor.id}>
-            {/* Use Link from next/link for client-side navigation */}
             <Link href={`/actors/${actor.id}`}>
                 <img
                   src={`https://image.tmdb.org/t/p/w200/${actor.profile_path}`}

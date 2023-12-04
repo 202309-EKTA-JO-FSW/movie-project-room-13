@@ -25,10 +25,10 @@
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
         "eslint",
-        "prettier --w"
+        "prettier -w"
     ],
     "src/**/*.{json,css,scss,md}": [
-        "prettier --w"
+        "prettier -w"
     ]
   }
 }
