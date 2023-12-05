@@ -14,8 +14,9 @@ export default function Home() {
   return (
     <div>
       <Navbar />
-      <MovieList />
+      <MovieList/>
       <Footer />
+
     </div>
   )
 }
