@@ -3,7 +3,6 @@ import Link from "next/link";
 <<<<<<< HEAD
 import { useRouter } from "next/router";
 
-
 function Navbar({onSearch}){
     const [genres, setGenres] = useState([]);
     const [selectedType, setSelectedType] = useState("");
