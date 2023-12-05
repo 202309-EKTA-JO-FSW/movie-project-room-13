@@ -12,10 +12,10 @@ import MovieList from './movies'
 
 export default function Home (){
   return(
-<div>
-    <Navbar />
-    <MovieList/>
- <Footer  />
+    <div>
+      <Navbar />
+      <MovieList/>
+      <Footer  />
     </div>
   )
 }

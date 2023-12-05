@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from './Navbar'
+<<<<<<< HEAD
 import Footer from './Footer.jsx'
 import { useRouter } from "next/router";
 import { MoviesByType } from "./api/movies.js";
@@ -18,6 +19,14 @@ return <div style={{height:"100vh"}}>
         ))}
       </ul>
     </div>
+=======
+import Footer from './Footer'
+
+function Movies(){ 
+    
+return <div style={{height:"100vh"}}>
+     <Navbar />
+>>>>>>> 25ff307262426b251cee7e150239188f2828425c
      <Footer />
       </div>
 }
