@@ -11,6 +11,7 @@
     "format:fix": "prettier --write --ignore-path .gitignore ."
   },
   "dependencies": {
+<<<<<<< HEAD
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-brands-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
@@ -23,6 +24,11 @@
     
      
     
+=======
+    "next": "14.0.3",
+    "react": "^18",
+    "react-dom": "^18"
+>>>>>>> 25ff307262426b251cee7e150239188f2828425c
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",
@@ -40,5 +46,8 @@
       "prettier -w"
     ]
   }
+<<<<<<< HEAD
   
+=======
+>>>>>>> 25ff307262426b251cee7e150239188f2828425c
 }
