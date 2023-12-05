@@ -37,7 +37,9 @@ function Navbar({onSearch}){
       const handleGenreChange = (e) => {
         const genre = e.target.value;
         setSelectedGenre(genre);
-        router.push(`/movies/${selectedType}`);
+        router.push(`/movies/${selectedType}/${genre}`);
+
+
       };
    return (<nav style={{display:"flex", width:"100vw" ,justifyContent:"center", backgroundColor:"whitesmoke" }}>
    <Link href="/" className="logo" style={{padding: "5px"}}>
@@ -58,7 +60,7 @@ function Navbar({onSearch}){
 
       <div className="movie-links" style={{ padding: "10px" }}>
         <select value={selectedType} onChange={handleTypeChange}>
-          <option value="">Select Type</option>
+          <option value="">Movies</option>
           <option value="top_rated">Top Rated</option>
           <option value="popular">Popular</option>
           <option value="upcoming">Up Coming</option>
@@ -67,9 +69,7 @@ function Navbar({onSearch}){
         </select>
 
       </div>
-      <Link href="/Movies" style={{padding: "10px"}}>
-        Movies
-      </Link>
+    
       <Link href="/Actors" style={{padding: "10px"}}>
         Actors
       </Link>
