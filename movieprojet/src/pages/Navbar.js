@@ -1,6 +1,5 @@
 import React ,{ useState, useEffect } from "react";
 import Link from "next/link";
-<<<<<<< HEAD
 import { useRouter } from "next/router";
 
 
@@ -15,12 +14,6 @@ function Navbar({onSearch}){
       onSearch(e.target.value);
     };
     const router = useRouter();
-=======
-
-
-function Navbar(){
-    const [genres, setGenres] = useState([]);
->>>>>>> 25ff307262426b251cee7e150239188f2828425c
     useEffect(() => {
         const options = {
           method: 'GET',
@@ -35,8 +28,7 @@ function Navbar(){
           .then(data => setGenres(data.genres))
           .catch(error => console.error(error));
       }, []);
-     
-<<<<<<< HEAD
+  
       const handleTypeChange = (e) => {
         const type = e.target.value;
         setSelectedType(type);
@@ -49,27 +41,16 @@ function Navbar(){
 
 
       };
-=======
-   
->>>>>>> 25ff307262426b251cee7e150239188f2828425c
    return (<nav style={{display:"flex", width:"100vw" ,justifyContent:"center", backgroundColor:"whitesmoke" }}>
    <Link href="/" className="logo" style={{padding: "5px"}}>
 
 <img src="https://png.pngtree.com/png-clipart/20200225/ourlarge/pngtree-movie-icon-design-png-image_2153114.jpg" style={{width:"50px"}} />
       </Link>
 
-<<<<<<< HEAD
       <div className="genres-dropdown" style={{ padding: "10px" }}>
         <select value={selectedGenre} onChange={handleGenreChange}>
           <option value="">Select Genre</option>
           {genres.map((genre) => (
-=======
-      <div className="genres-dropdown" style={{padding: "10px"}} >
-      
-        <select>
-          <option value="">Select Genre</option>
-          {genres.map(genre => (
->>>>>>> 25ff307262426b251cee7e150239188f2828425c
             <option key={genre.id} value={genre.id}>
               {genre.name}
             </option>
@@ -77,7 +58,6 @@ function Navbar(){
         </select>
       </div>
 
-<<<<<<< HEAD
       <div className="movie-links" style={{ padding: "10px" }}>
         <select value={selectedType} onChange={handleTypeChange}>
           <option value="">Movies</option>
@@ -89,42 +69,17 @@ function Navbar(){
         </select>
 
       </div>
-<<<<<<< HEAD
     
-=======
-=======
-      <div className="movie-links" style={{padding: "10px"}}>
-
-        <select name="movieId">
-          <option value="Top Rate">Top Rate</option>
-          <option value="Popular">Popular</option>
-          <option value="Latest">Latest</option>
-          <option value="Now playing">Now playing</option>
-          <option value="Upcoming">Upcoming</option>
-        </select>
-
-      </div>
-
-  
->>>>>>> 25ff307262426b251cee7e150239188f2828425c
-      <Link href="/Movies" style={{padding: "10px"}}>
-        Movies
-      </Link>
->>>>>>> fc4c4f5ecb157569162f1129631570bf14e1e11b
       <Link href="/Actors" style={{padding: "10px"}}>
         Actors
       </Link>
     
-<<<<<<< HEAD
       <input style={{height:"25px"}}
         type="text"
         placeholder="Search movies..."
         value={searchTerm}
         onChange={handleSearch}
       />
-=======
- 
->>>>>>> 25ff307262426b251cee7e150239188f2828425c
       
     </nav>)
 }
