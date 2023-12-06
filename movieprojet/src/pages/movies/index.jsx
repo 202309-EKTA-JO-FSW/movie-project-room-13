@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { getLatestMovies } from "../../API"
 import { data } from "autoprefixer"
 //import { Link } from 'react-router-dom';
+import Link from 'next/link'
 
 const MovieList = () => {
   const [movies, setMovies] = useState([])
@@ -76,12 +77,12 @@ src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
         /> 
 
       <div className="group p-6 grid z-10">
-        <a
-          href= ''
+        <Link
+          href= {`/movies/${encodeURIComponent(movie.id)}`}
           className="group-hover:text-cyan-700 font-bold sm:text-2xl line-clamp-2"
         >
          {movie.title}
-        </a>
+        </Link>
         <span className="text-slate-400 pt-2 font-semibold">
           
 
