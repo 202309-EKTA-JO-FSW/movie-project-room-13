@@ -7,14 +7,13 @@ import { BrowserRouter } from 'react-router-dom';
 import Image from 'next/image'
 import Navbar from './Navbar'
 import Footer from './Footer.jsx'
-
-import MovieList from './movies'
+import MovieByGenre from './MovieByGenra.jsx'
 
 export default function Home (){
   return(
     <div>
       <Navbar />
-      <MovieList/>
+
       <Footer  />
     </div>
   )

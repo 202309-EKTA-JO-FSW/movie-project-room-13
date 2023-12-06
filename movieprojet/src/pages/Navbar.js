@@ -7,6 +7,7 @@ function Navbar({ onSearch }) {
   const [selectedType, setSelectedType] = useState("");
   const [selectedGenre, setSelectedGenre] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
+  const [movies, setMovies] = useState([]);
 
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
@@ -33,6 +34,29 @@ function Navbar({ onSearch }) {
       .then((data) => setGenres(data.genres))
       .catch((error) => console.error(error));
   }, []);
+  const handleGenreChange = (e) => {
+    setSelectedGenre(e.target.value);
+  };
+
+  const fetchMoviesByGenre = async () => {
+    try {
+      // Replace 'YOUR_TMDB_API_KEY' with your actual TMDB API key
+      const apiKey = 'YOUR_TMDB_API_KEY';
+      const moviesUrl = `https://api.themoviedb.org/3/discover/movie?api_key=bacc5cb7f37a366d5cd55cba74b43fe2&with_genres=${selectedGenre}`;
+      const response = await fetch(moviesUrl);
+      const data = await response.json();
+      setMovies(data.results);
+    } catch (error) {
+      console.error('Error fetching movies by genre:', error);
+    }
+  };
+
+  useEffect(() => {
+    // Fetch movies when the selected genre changes
+    if (selectedGenre) {
+      fetchMoviesByGenre();
+    }
+  }, [selectedGenre]);
 
   const handleTypeChange = (e) => {
     const type = e.target.value;
@@ -40,20 +64,80 @@ function Navbar({ onSearch }) {
     router.push(`/movies/${type}`);
   };
 
-  const handleGenreChange = (e) => {
-    const genre = e.target.value;
-    setSelectedGenre(genre);
-    router.push(`/movies/${selectedType}/${genre}`);
-  };
+  
 
   return (
+    <div> <script src="//unpkg.com/alpinejs" defer></script>
+     <style jsx>{`
+        nav {
+          display: flex;
+          width: 100%;
+          justify-content: center;
+          align-items: center;
+          background-color: black;
+          padding: 10px;
+          color: white;
+        }
+
+        .logo img {
+          width: 50px;
+        }
+
+        select, input {
+          height: 30px;
+          margin-left: 10px;
+          font-size: 14px;
+          color:black
+        }
+        select {
+          background-color: transparent;
+          color: white;
+          border: none;
+          padding: 5px;
+          opacity: 0.6;
+          cursor: pointer;
+          transition: opacity 0.3s ease;
+        }
+
+        select:hover {
+          opacity: 1;
+        }
+        .movie-links {
+          padding: 10px;
+          background-color: transparent;
+          color: white;
+          border: none;
+          padding: 5px;
+          opacity: 0.6;
+          cursor: pointer;
+          transition: opacity 0.3s ease;
+        }
+
+        ul {
+          list-style: none;
+          padding: 0;
+        }
+
+        li {
+          margin-bottom: 20px;
+        }
+
+        h3 {
+          margin: 0;
+        }
+
+        p {
+          margin: 5px 0;
+        }
+
+        img {
+          width: 100px;
+        }
+       
+      `}</style>
+
     <nav
-      style={{
-        display: "flex",
-        width: "100vw",
-        justifyContent: "center",
-        backgroundColor: "whitesmoke",
-      }}
+     
     >
       <Link href="/" className="logo" style={{ padding: "5px" }}>
         <img
@@ -62,16 +146,17 @@ function Navbar({ onSearch }) {
         />
       </Link>
 
-      <div className="genres-dropdown" style={{ padding: "10px" }}>
-        <select value={selectedGenre} onChange={handleGenreChange}>
-          <option value="">Select Genre</option>
-          {genres.map((genre) => (
-            <option key={genre.id} value={genre.id}>
-              {genre.name}
-            </option>
-          ))}
-        </select>
-      </div>
+
+      <select style={{height:"30px"}} id="genre" onChange={handleGenreChange}>
+        <option value="">Genre</option>
+        {genres.map(genre => (
+          <option key={genre.id} value={genre.id}>
+            {genre.name}
+          </option>
+        ))}
+      </select>
+
+    
 
       <div className="movie-links" style={{ padding: "10px" }}>
         <select value={selectedType} onChange={handleTypeChange}>
@@ -83,9 +168,7 @@ function Navbar({ onSearch }) {
         </select>
       </div>
 
-      <Link href="/Movies" style={{ padding: "10px" }}>
-        Movies
-      </Link>
+    
       <Link href="/Actors" style={{ padding: "10px" }}>
         Actors
       </Link>
@@ -98,6 +181,24 @@ function Navbar({ onSearch }) {
         onChange={handleSearch}
       />
     </nav>
+    <div>
+        {movies.length === 0 ? (
+          <p>No movies found for the selected genre.</p>
+        ) : (
+          <ul>
+            {movies.map(movie => (
+              <li key={movie.id}>
+                <h3>{movie.title}</h3>
+                <p>{movie.overview}</p>
+                <p>Release Date: {movie.release_date}</p>
+                <img  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}  alt={movie.title} width={"100px"} />
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    
+    </div>
   );
 }
 
