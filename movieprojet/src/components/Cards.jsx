@@ -1,70 +1,28 @@
-import React, { useEffect, useState } from "react"
-import { getLatestMovies } from "../../API"
-import { data } from "autoprefixer"
-import Link from 'next/link'
-import Navbar from "../Navbar"
+import React from "react";
+import Link from "next/link";
 
-const MovieList = () => {
-  const [movies, setMovies] = useState([])
-
-  const [searchTerm, setSearchTerm] = useState('');
-  const filteredMovies = movies.filter((movie) =>
-    movie.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
-  const handleSearch = (term) => {
-    setSearchTerm(term);
-  };
-  
-  useEffect(() => {
-
-    const options = {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiN2MzNTAzM2VlNzJlZjNiYjI2MjA4NzY4OGJkODM5ZiIsInN1YiI6IjY1NjhlY2FlNzdjMDFmMDEyYzM5YjZmNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FjfKmBSBk43rsuewvVWuCaDY_11bN22u373JpBi4G5k`,
-      },
-    }
-    fetch("https://api.themoviedb.org/3/movie/now_playing", options)
-      .then((res) => res.json())
-      .then((data) => setMovies(data.results))
-      .catch(err => console.error(err))
-    console.log("lubna")
-  }, [])
-  console.log({ movies })
-
-  return (
-    <div >
-       <Navbar onSearch={handleSearch} />
-
-      <div class="playing-now-logo flex items-center space-x-2 p-4 bg-gray-800 text-white rounded-lg shadow-md">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEbeof3wVj2HsZNzeuiR9_nysD4G4tgtKK3qggkM0e_mVXtMBf3uNbZkRpfmguwpdx2KI&usqp=CAU.png" alt="Playing Now" class="w-12 h-12 rounded-full"/>
-  <div class="text-center flex-1">
-    <h3 class="text-lg font-caveat italic text-teal-300">LATEST MOVIES</h3>
-  </div>
-</div>
-  
-
-      <div className="grid grid-flow-row gap-8 text-neutral-600 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-40">
-        {movies.map((movie) =>
+export default function Cards ({items, folderName}) {
+    return (
+        <div className="grid grid-flow-row gap-8 text-neutral-600 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-40">
+        {items.map((item) =>
         (
-          <div key={movie.id} className='flex items-center justify-center h-screen bg-[#0d1829]  '>
+          <div key={item.id} className='flex items-center justify-center h-screen bg-[#0d1829]  '>
             <div className=' mx-auto bg-white rounded-3xl shadow-xl'>
               <div className="grid rounded-3xl max-w-sm shadow-sm bg-slate-100  flex-col">
                 <img
-                  src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+                  src={`https://image.tmdb.org/t/p/w200${item.poster_path ?? item.profile_path}`}
                   width="390"
                   height="200"
                   className="rounded-t-3xl justify-center grid h-80 object-cover"
-                  alt="movie.title"
+                  alt="item.title"
                 />
 
                 <div className="group p-6 grid z-10">
                   <Link
-                    href={`/movies/${encodeURIComponent(movie.id)}`}
+                    href={`/${folderName}/${encodeURIComponent(item.id)}`}
                     className="group-hover:text-cyan-700 font-bold sm:text-2xl line-clamp-2"
                   >
-                    {movie.title}
+                    {item.title ?? item.name}
                   </Link>
                   <span className="text-slate-400 pt-2 font-semibold">
 
@@ -72,15 +30,20 @@ const MovieList = () => {
                   </span>
                   <div className="h-28">
                     <span className="line-clamp-4 py-2 text-base font-light leading-relaxed">
-                      {movie.overview}
-
+                      {item.overview}
+                      {item.known_for && item.known_for.map((work) => (
+                <span key={work.id}>
+                  {work.original_title || work.original_name}
+                  {', '}
+                </span>
+              ))}
                     </span>
                   </div>
-                  <div className=" grid-cols-2 flex group justify-between">
+                  {item.vote_count && (<div className=" grid-cols-2 flex group justify-between">
                     <div className="font-black flex flex-col">
-                      <span className="text-yellow-500 text-xl">{movie.release_date}
+                      <span className="text-yellow-500 text-xl">{item.release_date}
                       </span>
-                      <span className="text-3xl flex gap-x-1 items-center group-hover:text-yellow-600">{movie.vote_average}
+                      <span className="text-3xl flex gap-x-1 items-center group-hover:text-yellow-600">{item.vote_average}
 
                         <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 
@@ -96,10 +59,11 @@ const MovieList = () => {
                     <div className="flex flex-col items-end">
                       <div className="h-7" />
                       <span className="text-3xl  font-bold  gap-x-2 text-slate-300">
-                        {movie.vote_count}
+                       {item.vote_count}
+                       
                       </span>
                     </div>
-                  </div>
+                  </div>)}
                 </div>
               </div>
             </div>
@@ -107,10 +71,5 @@ const MovieList = () => {
           </div>
         ))}
       </div>
-    </div>
-    
-  )
+    )
 }
-
-export default MovieList
-
