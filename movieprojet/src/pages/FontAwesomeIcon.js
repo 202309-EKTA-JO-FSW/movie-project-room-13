@@ -1,5 +1,4 @@
-// components/FontAwesomeIcon.js
-<<<<<<< HEAD
+
 /*import { FontAwesomeIcon as FAIcon } from './fontawesome/react-fontawesome';
 =======
 import { FontAwesomeIcon as FAIcon } from './fontawesome/react-fontawesome';

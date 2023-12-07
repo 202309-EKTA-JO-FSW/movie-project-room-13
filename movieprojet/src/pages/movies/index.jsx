@@ -3,12 +3,8 @@ import { getLatestMovies } from "../../API"
 import { data } from "autoprefixer"
 //import { Link } from 'react-router-dom';
 import Link from 'next/link'
-<<<<<<< HEAD
 import Navbar from "../Navbar"
 import Footer from "../Footer"
-=======
-
->>>>>>> 2170818e69130e31bf4d8e408d4920d56265c8e2
 const MovieList = () => {
   const [movies, setMovies] = useState([])
   const [searchTerm, setSearchTerm] = useState('');
