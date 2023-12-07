@@ -5,17 +5,15 @@ import ReactDOM from "react-dom"
 //import store from "./redux/store";
 import { BrowserRouter } from "react-router-dom"
 import Image from "next/image"
-import Navbar from "./Navbar"
-import Footer from "./Footer"
+//import Navbar from "./Navbar"
+//import Footer from "./Footer"
 
 import MovieList from "./movies/index"
 
 export default function Home() {
   return (
     <div>
-      <Navbar />
-      <MovieList />
-      <Footer />
+      <MovieList/>
     </div>
   )
 }

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { getLatestMovies } from "../../API"
 import { data } from "autoprefixer"
-//import { Link } from 'react-router-dom';
 import Link from 'next/link'
 
 const MovieList = () => {
@@ -17,53 +16,30 @@ const MovieList = () => {
       },
     }
 
-    //try {
-      /*const response = await fetch('https://api.themoviedb.org/3/movie/latest', options);
-            const data = await response.json();
-            setMovies(data.results); 
-            */
       fetch("https://api.themoviedb.org/3/movie/now_playing", options)
         .then((res) => res.json())
         .then((data) => setMovies(data.results))
         .catch(err => console.error(err))
-   /* } catch (error) {
-      console.error("Error fetching latest movies:", error)
-    }
-    */
-    //};
+   
     console.log("lubna")
+}, [])
 
-    //fetchData();
-  }, [])
   console.log({ movies })
-  /*
-      const data = await getLatestMovies()
-      setMovies(data)
-    }
-
-    fetchMovies()
-  }, [])
-  */
 
   return (
     <div >
-      <h2>Playing Now</h2>
+      <div class="playing-now-logo flex items-center space-x-2 p-4 bg-gray-800 text-white rounded-lg shadow-md">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEbeof3wVj2HsZNzeuiR9_nysD4G4tgtKK3qggkM0e_mVXtMBf3uNbZkRpfmguwpdx2KI&usqp=CAU.png" alt="Playing Now" class="w-12 h-12 rounded-full"/>
+  <div class="text-center flex-1">
+    <h3 class="text-lg font-caveat italic text-teal-300">LATEST MOVIES</h3>
+  </div>
+</div>
+  
+
       <div className="grid grid-flow-row gap-8 text-neutral-600 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-40">
         {movies.map((movie) => 
         (
-         /*<li key={movie.id}
-         >
-            <img
-              src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-              alt={movie.title}
-            />
-            <p>{movie.title}</p>
-          </li> */
-
-
-//<li key={movie.id}  > 
-
-
+         
 
 <div  key={movie.id} className='flex items-center justify-center h-screen bg-[#0d1829]  '>
     <div className=' mx-auto bg-white rounded-3xl shadow-xl'>
@@ -121,16 +97,11 @@ src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
     </div>
 </div>
 
-</div>
-
-
-
-
-
-         
+</div>   
         ))}
      </div>
     </div>
+    
   )
 }
 
