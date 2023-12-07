@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react"
 import { getLatestMovies } from "../../API"
 import { data } from "autoprefixer"
-//import { Link } from 'react-router-dom';
 import Link from 'next/link'
 import Navbar from "../Navbar"
 import Footer from "../Footer"
+
+
 const MovieList = () => {
   const [movies, setMovies] = useState([])
   const [searchTerm, setSearchTerm] = useState('');
@@ -27,6 +28,8 @@ const MovieList = () => {
   const handleSearch = (term) => {
     setSearchTerm(term);
   };
+
+  
   const fetchMovies = async (endpoint) => {
     try {
       const options = {
@@ -44,6 +47,7 @@ const MovieList = () => {
       console.error("Error fetching movies:", error);
     }
   };
+  
   useEffect(() => {
     
     const options = {
@@ -76,7 +80,8 @@ const MovieList = () => {
            <Navbar onSearch={handleSearch}  onSelectGenre={handleGenreChange} onSelectType={handleTypeChange}  /> 
       <h2>Playing Now</h2>
       <div className="grid grid-flow-row gap-8 text-neutral-600 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-40">
-        {filteredMovies.map((movie) => 
+
+        {filteredMovies.map((movie) =>
         (
  
            <div  key={movie.id} className='flex items-center justify-center h-screen bg-[#0d1829]  '>
