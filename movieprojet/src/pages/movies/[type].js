@@ -34,7 +34,7 @@ const Movies = ({ movies }) => {
         
         ))}
       </ul>
-      <Footer />
+
     </div>
   );
 };

@@ -2,10 +2,48 @@ import React, { useEffect, useState } from "react"
 import { getLatestMovies } from "../../API"
 import { data } from "autoprefixer"
 //import { Link } from 'react-router-dom';
-
+import Link from 'next/link'
+import Navbar from "../Navbar"
+import Footer from "../Footer"
 const MovieList = () => {
   const [movies, setMovies] = useState([])
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedType, setSelectedType] = useState("now_playing");
+  const [selectedGenre, setSelectedGenre] = useState("");
 
+  const filteredMovies = movies.filter((movie) =>
+    movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+ const handleGenreChange = (selectedGenre) => {
+
+    setSelectedGenre(selectedGenre);
+    setSelectedType("")
+  };
+ const handleTypeChange =(selectedType) =>{
+    setSelectedType(selectedType);
+    setSelectedGenre("")
+  
+  }
+  const handleSearch = (term) => {
+    setSearchTerm(term);
+  };
+  const fetchMovies = async (endpoint) => {
+    try {
+      const options = {
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiYWNjNWNiN2YzN2EzNjZkNWNkNTVjYmE3NGI0M2ZlMiIsInN1YiI6IjY1Njc3NjZjMDIxY2VlMDEzYTg0MzMxYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.AzZZFUx9YA3TyFD4o86SQE1mY1CwZkk5Kx09BfWQZPY'
+        }
+      };
+      
+      const response = await fetch(endpoint, options);
+      const data = await response.json();
+      setMovies(data.results);
+    } catch (error) {
+      console.error("Error fetching movies:", error);
+    }
+  };
   useEffect(() => {
     
     const options = {
@@ -15,13 +53,13 @@ const MovieList = () => {
         Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiN2MzNTAzM2VlNzJlZjNiYjI2MjA4NzY4OGJkODM5ZiIsInN1YiI6IjY1NjhlY2FlNzdjMDFmMDEyYzM5YjZmNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FjfKmBSBk43rsuewvVWuCaDY_11bN22u373JpBi4G5k`,
       },
     }
-
+  
     //try {
       /*const response = await fetch('https://api.themoviedb.org/3/movie/latest', options);
             const data = await response.json();
             setMovies(data.results); 
             */
-      fetch("https://api.themoviedb.org/3/movie/now_playing", options)
+    /* fetch("https://api.themoviedb.org/3/movie/now_playing", options)
         .then((res) => res.json())
         .then((data) => setMovies(data.results))
         .catch(err => console.error(err))
@@ -30,10 +68,24 @@ const MovieList = () => {
     }
     */
     //};
+    
     console.log("lubna")
 
     //fetchData();
   }, [])
+  useEffect(() => {
+    
+    let endpoint = "https://api.themoviedb.org/3/movie/now_playing";
+    
+    if (selectedType) {
+      endpoint = `https://api.themoviedb.org/3/movie/${selectedType}`;
+    } else if (selectedGenre) {
+      endpoint = `https://api.themoviedb.org/3/discover/movie?api_key=bacc5cb7f37a366d5cd55cba74b43fe2&with_genres=${selectedGenre}`;
+    }
+
+
+    fetchMovies(endpoint);
+  }, [selectedType, selectedGenre]);
   console.log({ movies })
   /*
       const data = await getLatestMovies()
@@ -46,9 +98,10 @@ const MovieList = () => {
 
   return (
     <div >
+           <Navbar onSearch={handleSearch}  onSelectGenre={handleGenreChange} onSelectType={handleTypeChange}  /> 
       <h2>Playing Now</h2>
       <div className="grid grid-flow-row gap-8 text-neutral-600 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-40">
-        {movies.map((movie) => 
+        {filteredMovies.map((movie) => 
         (
          /*<li key={movie.id}
          >
@@ -76,12 +129,12 @@ src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
         /> 
 
       <div className="group p-6 grid z-10">
-        <a
-          href= ''
+        <Link
+          href= {`/movies/${encodeURIComponent(movie.id)}`}
           className="group-hover:text-cyan-700 font-bold sm:text-2xl line-clamp-2"
         >
          {movie.title}
-        </a>
+        </Link>
         <span className="text-slate-400 pt-2 font-semibold">
           
 
@@ -129,6 +182,7 @@ src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
          
         ))}
      </div>
+     <Footer />
     </div>
   )
 }

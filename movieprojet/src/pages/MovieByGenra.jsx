@@ -6,13 +6,13 @@ const MovieByGenre = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    // Fetch genres when the component mounts
+  
     fetchGenres();
   }, []);
 
   const fetchGenres = async () => {
     try {
-      // Replace 'YOUR_TMDB_API_KEY' with your actual TMDB API key
+
       const apiKey = 'YOUR_TMDB_API_KEY';
       const genresUrl = `https://api.themoviedb.org/3/genre/movie/list?api_key=bacc5cb7f37a366d5cd55cba74b43fe2`;
       const response = await fetch(genresUrl);

@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-
+import Navbar from "../Navbar";
 const ActorList = () => {
   const [actors, setActors] = useState([]);
-
+  const [searchTerm, setSearchTerm] = useState("");
+  const filteredActors = actors.filter((actor) =>
+  actor.original_name.toLowerCase().includes(searchTerm.toLowerCase())
+);
+  const handleSearch = (term) => {
+    setSearchTerm(term);
+  };
   useEffect(() => {
     const fetchData = async () => {
       const url = 'https://api.themoviedb.org/3/person/popular?language=en-US&page=1';
@@ -29,9 +35,10 @@ const ActorList = () => {
 
   return (
     <div>
+      <Navbar onSearch={handleSearch} />
       <h1>Actor List</h1>
       <ul>
-        {actors.map((actor) => (
+        {filteredActors.map((actor) => (
           <li key={actor.id}>
             <Link href={`/actors/${actor.id}`}>
                 <img

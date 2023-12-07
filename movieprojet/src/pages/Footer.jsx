@@ -22,12 +22,12 @@ const Footer = () => {
             <li key={index} style={{width:"25%"}}>
               {member.name} -{' '}
               <a href={member.github} target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faGithub} size="2x" color="#333" /> GitHub
+               GitHub
               </a>{' '}
               |{' '}
               <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
             
-              <FontAwesomeIcon icon={faLinkedin} size="2x" color="#333" /> LinkedIn
+               LinkedIn
               </a>
             </li>
           ))}

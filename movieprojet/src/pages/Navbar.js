@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-function Navbar({ onSearch }) {
+function Navbar({ onSearch , onSelectType, onSelectGenre}) {
   const [genres, setGenres] = useState([]);
   const [selectedType, setSelectedType] = useState("");
   const [selectedGenre, setSelectedGenre] = useState("");
@@ -34,40 +34,18 @@ function Navbar({ onSearch }) {
       .then((data) => setGenres(data.genres))
       .catch((error) => console.error(error));
   }, []);
-  const handleGenreChange = (e) => {
-    setSelectedGenre(e.target.value);
-  };
+ 
 
-  const fetchMoviesByGenre = async () => {
-    try {
-      // Replace 'YOUR_TMDB_API_KEY' with your actual TMDB API key
-      const apiKey = 'YOUR_TMDB_API_KEY';
-      const moviesUrl = `https://api.themoviedb.org/3/discover/movie?api_key=bacc5cb7f37a366d5cd55cba74b43fe2&with_genres=${selectedGenre}`;
-      const response = await fetch(moviesUrl);
-      const data = await response.json();
-      setMovies(data.results);
-    } catch (error) {
-      console.error('Error fetching movies by genre:', error);
-    }
-  };
+  
 
-  useEffect(() => {
-    // Fetch movies when the selected genre changes
-    if (selectedGenre) {
-      fetchMoviesByGenre();
-    }
-  }, [selectedGenre]);
+  
 
-  const handleTypeChange = (e) => {
-    const type = e.target.value;
-    setSelectedType(type);
-    router.push(`/movies/${type}`);
-  };
+ 
 
   
 
   return (
-    <div> <script src="//unpkg.com/alpinejs" defer></script>
+    <div> 
      <style jsx>{`
         nav {
           display: flex;
@@ -105,14 +83,17 @@ function Navbar({ onSearch }) {
         .movie-links {
           padding: 10px;
           background-color: transparent;
-          color: white;
+          color: black;
           border: none;
           padding: 5px;
           opacity: 0.6;
           cursor: pointer;
           transition: opacity 0.3s ease;
         }
+       option{
+        background-color:black;
 
+       }
         ul {
           list-style: none;
           padding: 0;
@@ -141,13 +122,13 @@ function Navbar({ onSearch }) {
     >
       <Link href="/" className="logo" style={{ padding: "5px" }}>
         <img
-          src="https://png.pngtree.com/png-clipart/20200225/ourlarge/pngtree-movie-icon-design-png-image_2153114.jpg"
+          src="https://icons.iconarchive.com/icons/designbolts/free-multimedia/512/Film-icon.png"
           style={{ width: "50px" }}
         />
       </Link>
 
 
-      <select style={{height:"30px"}} id="genre" onChange={handleGenreChange}>
+      <select  style={{height:"30px"}} id="genre" onChange={(e) => onSelectGenre(e.target.value)}>
         <option value="">Genre</option>
         {genres.map(genre => (
           <option key={genre.id} value={genre.id}>
@@ -159,7 +140,7 @@ function Navbar({ onSearch }) {
     
 
       <div className="movie-links" style={{ padding: "10px" }}>
-        <select value={selectedType} onChange={handleTypeChange}>
+        <select  onChange={(e) => onSelectType(e.target.value)}>
           <option value="">Movies</option>
           <option value="top_rated">Top Rated</option>
           <option value="popular">Popular</option>
@@ -181,22 +162,7 @@ function Navbar({ onSearch }) {
         onChange={handleSearch}
       />
     </nav>
-    <div>
-        {movies.length === 0 ? (
-          <p>No movies found for the selected genre.</p>
-        ) : (
-          <ul>
-            {movies.map(movie => (
-              <li key={movie.id}>
-                <h3>{movie.title}</h3>
-                <p>{movie.overview}</p>
-                <p>Release Date: {movie.release_date}</p>
-                <img  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}  alt={movie.title} width={"100px"} />
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
+  
     
     </div>
   );
