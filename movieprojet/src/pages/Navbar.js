@@ -22,6 +22,7 @@ function Navbar({ onSearch , onSelectType, onSelectGenre}) {
           "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiYWNjNWNiN2YzN2EzNjZkNWNkNTVjYmE3NGI0M2ZlMiIsInN1YiI6IjY1Njc3NjZjMDIxY2VlMDEzYTg0MzMxYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.AzZZFUx9YA3TyFD4o86SQE1mY1CwZkk5Kx09BfWQZPY",
       },
     };
+    console.log("Noor")
 
     fetch(
       "https://api.themoviedb.org/3/genre/movie/list?language=en",
@@ -32,15 +33,6 @@ function Navbar({ onSearch , onSelectType, onSelectGenre}) {
       .catch((error) => console.error(error));
   }, []);
  
-
-  
-
-  
-
- 
-
-  
-
   return (
     <div> 
 
