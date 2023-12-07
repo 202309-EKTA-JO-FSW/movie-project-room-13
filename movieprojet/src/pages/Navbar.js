@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-function Navbar({ onSearch }) {
+function Navbar({ onSearch , }) {
   const [genres, setGenres] = useState([]);
   const [selectedType, setSelectedType] = useState("");
   const [selectedGenre, setSelectedGenre] = useState("");
@@ -70,7 +70,7 @@ function Navbar({ onSearch }) {
           <div class="px-5 xl:px-12 py-6 flex w-full items-center">
             <a class="text-3xl font-bold font-heading h-12 w-auto" href="/">
               <img className=" max-h-8 h-full"  style={{ maxHeight: '100%' }}
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOiA88lQVNH5djkRkhV3X0GjPvId7Uxuz_fw&usqp=CAU.jpg"
+              src="https://icons.iconarchive.com/icons/designbolts/free-multimedia/512/Film-icon.png"
               />
             </a>
             <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
@@ -101,7 +101,7 @@ function Navbar({ onSearch }) {
             </li>
               <li><a class="hover:text-gray-200 italic" href="/Actors">Actors</a></li>
               <li> <input
-                class= "h-6 rounded-lg text-center"
+                class= "h-6 rounded-lg text-center text-black"
                 type="text"
                 placeholder="Search"
                 value={searchTerm}

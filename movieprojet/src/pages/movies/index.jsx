@@ -15,7 +15,7 @@ const MovieList = () => {
   const handleSearch = (term) => {
     setSearchTerm(term);
   };
-  
+
   useEffect(() => {
 
     const options = {
@@ -46,7 +46,7 @@ const MovieList = () => {
   
 
       <div className="grid grid-flow-row gap-8 text-neutral-600 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-40">
-        {movies.map((movie) =>
+        {filteredMovies.map((movie) =>
         (
           <div key={movie.id} className='flex items-center justify-center h-screen bg-[#0d1829]  '>
             <div className=' mx-auto bg-white rounded-3xl shadow-xl'>

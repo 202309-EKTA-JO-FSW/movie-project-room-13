@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Cards from "../../components/Cards";
+import Navbar from "../Navbar";
+//import Footer from "../Footer"
+import {data} from "autoprefixer"
 
 const ActorList = () => {
   const [actors, setActors] = useState([]);
