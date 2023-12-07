@@ -4,10 +4,8 @@ import { useRouter } from "next/router";
 
 function Navbar({ onSearch , onSelectType, onSelectGenre}) {
   const [genres, setGenres] = useState([]);
-  const [selectedType, setSelectedType] = useState("");
-  const [selectedGenre, setSelectedGenre] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
-  const [movies, setMovies] = useState([]);
+
 
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
