@@ -22,19 +22,20 @@ const Movies = ({ movies }) => {
    
       <ul style={{display:"flex", flexWrap:"wrap", padding:"16px"}}>
         {filteredMovies.map((movie) => ( 
-            <li  style={{width:"25%"}} key={movie.id}>
-      <img
+          <li  style={{width:"25%"}} key={movie.id}>
+            <a href = {`/movies/${encodeURIComponent(movie.id)}`}>
+              <img
                   src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                   alt={movie.title} width={"100px"}
-                />
+              />
             <h2>{movie.title}</h2>
             <p>{movie.overview}</p>
+            </a>
           </li>
- 
+
         
         ))}
       </ul>
-      <Footer />
     </div>
   );
 };
