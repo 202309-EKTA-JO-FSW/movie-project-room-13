@@ -6,7 +6,6 @@ function Navbar({ onSearch , onSelectType, onSelectGenre}) {
   const [genres, setGenres] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
-
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
     onSearch(e.target.value);
@@ -44,76 +43,6 @@ function Navbar({ onSearch , onSelectType, onSelectGenre}) {
 
   return (
     <div> 
-     <style jsx>{`
-        nav {
-          display: flex;
-          width: 100%;
-          justify-content: center;
-          align-items: center;
-          background-color: black;
-          padding: 10px;
-          color: white;
-        }
-
-        .logo img {
-          width: 50px;
-        }
-
-        select, input {
-          height: 30px;
-          margin-left: 10px;
-          font-size: 14px;
-          color:black
-        }
-        select {
-          background-color: transparent;
-          color: white;
-          border: none;
-          padding: 5px;
-          opacity: 0.6;
-          cursor: pointer;
-          transition: opacity 0.3s ease;
-        }
-
-        select:hover {
-          opacity: 1;
-        }
-        .movie-links {
-          padding: 10px;
-          background-color: transparent;
-          color: black;
-          border: none;
-          padding: 5px;
-          opacity: 0.6;
-          cursor: pointer;
-          transition: opacity 0.3s ease;
-        }
-       option{
-        background-color:black;
-
-       }
-        ul {
-          list-style: none;
-          padding: 0;
-        }
-
-        li {
-          margin-bottom: 20px;
-        }
-
-        h3 {
-          margin: 0;
-        }
-
-        p {
-          margin: 5px 0;
-        }
-
-        img {
-          width: 100px;
-        }
-       
-      `}</style>
 
     <nav
      

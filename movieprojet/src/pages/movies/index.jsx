@@ -134,7 +134,7 @@ const MovieList = () => {
         </div>
        </div>
 
-     </div>
+  </div>
 
 
 
