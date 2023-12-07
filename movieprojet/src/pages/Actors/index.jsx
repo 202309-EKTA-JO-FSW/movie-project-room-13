@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Cards from "../../components/Cards";
 
 const ActorList = () => {
   const [actors, setActors] = useState([]);
@@ -29,8 +30,16 @@ const ActorList = () => {
 
   return (
     <div>
-      <h1>Actor List</h1>
-      <ul>
+      <div class="actors_logo flex items-center space-x-2 p-4 bg-gray-800 text-white rounded-lg shadow-md">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCiDG9iKXp7XpGGTSXr-UkYUtRqF7rr-XZAg&usqp=CAU.png" alt="Actors List" class="w-12 h-12 rounded-full"/>
+  <div class="text-center flex-1">
+    <h3 class="text-lg font-caveat italic text-teal-300">ACTORS LIST</h3>
+  </div>
+</div>
+
+      <ul >
+      <Cards items = {actors} folderName="Actors"/>
+      {/*
         {actors.map((actor) => (
           <li key={actor.id}>
             <Link href={`/actors/${actor.id}`}>
@@ -50,6 +59,7 @@ const ActorList = () => {
             </p>
           </li>
         ))}
+              */}
       </ul>
     </div>
   );

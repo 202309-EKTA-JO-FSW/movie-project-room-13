@@ -68,16 +68,16 @@ function Navbar({ onSearch }) {
       <section class="relative mx-auto">
         <nav class="flex justify-between bg-teal-500 text-white w-screen">
           <div class="px-5 xl:px-12 py-6 flex w-full items-center">
-            <a class="text-3xl font-bold font-heading" href="/">
-              <img class=" max-h-8"
-              src="https://png.pngtree.com/png-clipart/20200225/ourlarge/pngtree-movie-icon-design-png-image_2153114.jpg"
+            <a class="text-3xl font-bold font-heading h-12 w-auto" href="/">
+              <img className=" max-h-8 h-full"  style={{ maxHeight: '100%' }}
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOiA88lQVNH5djkRkhV3X0GjPvId7Uxuz_fw&usqp=CAU.jpg"
               />
             </a>
             <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
               <li>
               <div className="movie-links hover:text-gray-200 bg-teal-500">
         
-                <select class="hover:text-gray-200 bg-teal-500" id="genre" onChange={handleGenreChange}>
+                <select class="hover:text-gray-200 italic bg-teal-500" id="genre" onChange={handleGenreChange}>
                     <option value="">Genre</option>
                     {genres.map(genre => (
                       <option key={genre.id} value={genre.id}>
@@ -89,7 +89,7 @@ function Navbar({ onSearch }) {
             
               </li>
               
-            <li><div className="movie-links hover:text-gray-200 bg-teal-500">
+            <li><div className="movie-links hover:text-gray-200 italic bg-teal-500">
                 <select value={selectedType} onChange={handleTypeChange}class="bg-teal-500">
                   <option value="">Movies</option>
                   <option value="top_rated">Top Rated</option>
@@ -99,11 +99,11 @@ function Navbar({ onSearch }) {
                 </select>
               </div>
             </li>
-              <li><a class="hover:text-gray-200" href="/Actors">Actors</a></li>
+              <li><a class="hover:text-gray-200 italic" href="/Actors">Actors</a></li>
               <li> <input
                 class= "h-6 rounded-lg text-center"
                 type="text"
-                placeholder="Search movies..."
+                placeholder="Search"
                 value={searchTerm}
                 onChange={handleSearch}
               />

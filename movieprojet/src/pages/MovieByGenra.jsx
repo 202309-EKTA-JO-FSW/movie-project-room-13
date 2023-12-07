@@ -1,3 +1,4 @@
+import Cards from '../components/Cards';
 import React, { useState, useEffect } from 'react';
 
 const MovieByGenre = () => {
@@ -53,6 +54,7 @@ const MovieByGenre = () => {
       <select id="genre" onChange={handleGenreChange}>
         <option value="">Select genre</option>
         {genres.map(genre => (
+          
           <option key={genre.id} value={genre.id}>
             {genre.name}
           </option>
@@ -64,6 +66,7 @@ const MovieByGenre = () => {
           <p>No movies found for the selected genre.</p>
         ) : (
           <ul>
+            <Cards items = {movies}/>
             {movies.map(movie => (
               <li key={movie.id}>
                 <h3>{movie.title}</h3>
