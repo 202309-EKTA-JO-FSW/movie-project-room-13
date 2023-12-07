@@ -61,12 +61,74 @@ function Navbar({ onSearch }) {
   const handleTypeChange = (e) => {
     const type = e.target.value;
     setSelectedType(type);
-    router.push(`/movies/${type}`);
+    router.push(`/movies/type/${type}`);
   };
 
-  
+  return(
+      <section class="relative mx-auto">
+        <nav class="flex justify-between bg-teal-500 text-white w-screen">
+          <div class="px-5 xl:px-12 py-6 flex w-full items-center">
+            <a class="text-3xl font-bold font-heading" href="/">
+              <img class=" max-h-8"
+              src="https://png.pngtree.com/png-clipart/20200225/ourlarge/pngtree-movie-icon-design-png-image_2153114.jpg"
+              />
+            </a>
+            <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
+              <li>
+              <div className="movie-links hover:text-gray-200 bg-teal-500">
+        
+                <select class="hover:text-gray-200 bg-teal-500" id="genre" onChange={handleGenreChange}>
+                    <option value="">Genre</option>
+                    {genres.map(genre => (
+                      <option key={genre.id} value={genre.id}>
+                        {genre.name}
+                      </option>
+                    ))}
+                  </select>
+                  </div>
+            
+              </li>
+              
+            <li><div className="movie-links hover:text-gray-200 bg-teal-500">
+                <select value={selectedType} onChange={handleTypeChange}class="bg-teal-500">
+                  <option value="">Movies</option>
+                  <option value="top_rated">Top Rated</option>
+                  <option value="popular">Popular</option>
+                  <option value="upcoming">Up Coming</option>
+                  <option value="now_playing">Now Playing</option>
+                </select>
+              </div>
+            </li>
+              <li><a class="hover:text-gray-200" href="/Actors">Actors</a></li>
+              <li> <input
+                class= "h-6 rounded-lg text-center"
+                type="text"
+                placeholder="Search movies..."
+                value={searchTerm}
+                onChange={handleSearch}
+              />
+            </li>
 
-  return (
+
+            
+            </ul>
+            
+          </div>
+        
+      <a class="navbar-burger self-center mr-12 xl:hidden" href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+      </a>
+
+        </nav>
+        
+      </section>
+  )
+
+  /*return (
+
+
     <div> <script src="//unpkg.com/alpinejs" defer></script>
      <style jsx>{`
         nav {
@@ -199,7 +261,7 @@ function Navbar({ onSearch }) {
       </div>
     
     </div>
-  );
+  );*/
 }
 
 export default Navbar;

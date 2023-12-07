@@ -4,7 +4,7 @@ import ReactDOM from "react-dom"
 //import { Provider } from 'react-redux';
 //import store from "./redux/store";
 
-import { BrowserRouter } from 'react-router-dom';
+//import { BrowserRouter } from 'react-router-dom';
 import Image from 'next/image'
 import Navbar from './Navbar'
 import Footer from './Footer.jsx'
@@ -17,7 +17,7 @@ export default function Home() {
     <div>
       <Navbar />
       <MovieList/>
-      <Footer />
+      
 
 
     </div>
