@@ -7,6 +7,8 @@ const ActorDetailPage = () => {
   const currentId = router.query.actorsId
   const [actor, setActor] = useState(null);
   const [movieSimiler, setmovieSimiler] = useState({})
+  
+
 
 
 
@@ -49,6 +51,10 @@ const ActorDetailPage = () => {
 
   const mainSimiler = movieSimiler.cast?.slice(0, 4)
 
+  const gender = actor?.gender == "2"? "Male":"Female"
+  
+  
+
   return (
     <>
           <Navbar />
@@ -64,18 +70,22 @@ const ActorDetailPage = () => {
           <div class="xl:w-2/5 md:w-1/2 lg:ml-8 md:ml-6 md:mt-0 mt-6">
             <div class="border-b border-gray-700 pb-6">
               <h1 class="lg:text-2xl text-xl font-semibold lg:leading-6 leading-7 text-gray-300 dark:text-white mt-2">{actor?.name}</h1>
+
+              <div>
+                    <p class="text-lg leading-4 mt-7 text-gray-600 dark:text-gray-300">Birthday : {actor?.birthday}</p>
+                    <p class="text-lg leading-4 mt-7 text-gray-600 dark:text-gray-300">Popularity : {actor?.popularity}</p>
+                    <p class="text-lg leading-4 mt-7 text-gray-600 dark:text-gray-300">Gender : {gender}</p>
+
             </div>
+            </div>
+
+            
             
             <div class="py-4 border-b border-gray-700 flex items-center justify-between">
               <p class="text-base leading-4 text-gray-800 dark:text-gray-300">{actor?.biography}</p>
             </div>
             
           
-            <div>
-              <p class="text-lg leading-4 mt-7 text-gray-600 dark:text-gray-300">Birthday : {actor?.birthday}</p>
-              <p class="text-lg leading-4 mt-7 text-gray-600 dark:text-gray-300">Popularity : {actor?.popularity}</p>
-
-            </div>
       </div>
 
     </div>
@@ -106,6 +116,8 @@ const ActorDetailPage = () => {
                     {movie.original_title}
                   </a>
                   <span className="text-slate-400 pt-2 font-semibold">
+
+                  
 
 
                   </span>
