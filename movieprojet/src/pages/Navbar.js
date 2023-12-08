@@ -75,7 +75,7 @@ function Navbar({ onSearch, onSelectType, onSelectGenre }) {
               </div>
             </li>
             <li>
-              <a class="hover:text-gray-200 italic" href="/actors">
+              <a class="hover:text-gray-200 italic" href="/Actors">
                 Actors
               </a>
             </li>
