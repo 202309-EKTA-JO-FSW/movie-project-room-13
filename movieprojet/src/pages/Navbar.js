@@ -34,7 +34,7 @@ function Navbar({ onSearch, onSelectType, onSelectGenre }) {
     <section class="relative mx-auto">
       <nav class="flex justify-between bg-teal-500 text-white w-screen">
         <div class="px-5 xl:px-12 py-6 flex w-full items-center">
-          <a class="text-3xl font-bold font-heading h-12 w-auto" href="/">
+          <a class="text-3xl font-bold font-heading h-12 w-auto italic  bg-gradient-to-r from-white to-teal-300 text-transparent bg-clip-text" href="/">YouMove
             <img
               className=" max-h-8 h-full"
               style={{ maxHeight: "100%" }}
@@ -60,13 +60,18 @@ function Navbar({ onSearch, onSelectType, onSelectGenre }) {
             </li>
 
             <li>
-              <div className="movie-links hover:text-gray-200 italic bg-teal-500">
+              <div className="movie-links hover:text-gray-200 italic bg-teal-500" href="/Movies" 
+              
+              >
                 <select
+                
                   value=""
                   onChange={(e) => onSelectType(e.target.value)}
                   class="bg-teal-500"
-                >
-                  <option value="">Movies</option>
+                > 
+              
+                
+                  <option value="" >Movies</option>
                   <option value="top_rated">Top Rated</option>
                   <option value="popular">Popular</option>
                   <option value="upcoming">Up Coming</option>
