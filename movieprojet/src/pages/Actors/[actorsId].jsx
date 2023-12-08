@@ -79,13 +79,9 @@ const ActorDetailPage = () => {
 
             </div>
             </div>
-
-            
-            
             <div class="py-4 border-b border-gray-700 flex items-center justify-between">
               <p class="text-base leading-4 text-gray-800 dark:text-gray-300">{actor?.biography}</p>
             </div>
-            
           
       </div>
 
@@ -94,7 +90,6 @@ const ActorDetailPage = () => {
     <div class="items-center text-center" >
       <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700"/>
       <h3 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Actor Movies </h3>
-
       <div className="grid grid-flow-row gap-8 text-neutral-600 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-40">
         {mainSimiler?.map((movie) =>
         (
@@ -108,7 +103,6 @@ const ActorDetailPage = () => {
                   className="rounded-t-3xl justify-center grid h-80 object-cover"
                   alt="movie.title"
                 />
-
                 <div className="group p-6 grid z-10">
                   <a
                     href={`/movies/${encodeURIComponent(movie.id)}`}
@@ -117,10 +111,6 @@ const ActorDetailPage = () => {
                     {movie.original_title}
                   </a>
                   <span className="text-slate-400 pt-2 font-semibold">
-
-                  
-
-
                   </span>
                   <div className="h-28">
                     <span className="line-clamp-4 py-2 text-base font-light leading-relaxed">
