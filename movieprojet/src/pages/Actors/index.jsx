@@ -38,34 +38,30 @@ const ActorList = () => {
     fetchData();
   }, []); 
 
-  return (
-    <div>
-      <Navbar onSearch={handleSearch} />
-      <h1>Actor List</h1>
-      <ul>
-        {filteredActors.map((actor) => (
-          <li key={actor.id}>
-            <Link href={`/actors/${actor.id}`}>
-                <img
-                  src={`https://image.tmdb.org/t/p/w200/${actor.profile_path}`}
-                  alt={actor.name}
-                />
-                <strong>{actor.name}</strong>
-            </Link>
-            <p>
-              {actor.known_for.map((work) => (
-                <span key={work.id}>
-                  {work.original_title || work.original_name}
-                  {', '}
-                </span>
-              ))}
-            </p>
-          </li>
-        ))}
-              
-      </ul>
-    </div>
-  );
+return (
+  <div className="inline-block text-center">
+    <Navbar onSearch={handleSearch} />
+
+    <h1 className="text-3xl font-bold mb-4">Actor List</h1>
+
+    <ul className="list-none p-0">
+      {filteredActors.map((actor) => (
+        <li key={actor.id} className="mb-4 inline-block mr-4">
+          <Link href={`/actors/${actor.id}`} className="no-underline">
+            {actor.profile_path && (
+              <img
+                src={`https://image.tmdb.org/t/p/w200/${actor.profile_path}`}
+                alt={actor.name}
+                className="rounded-lg"
+              />
+            )}
+            <strong className="block mt-2">{actor.name}</strong>
+          </Link>
+        </li>
+      ))}
+    </ul>
+  </div>
+);
 };
 
 export default ActorList;
