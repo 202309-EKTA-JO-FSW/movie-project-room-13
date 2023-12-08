@@ -59,7 +59,7 @@ return (
     {/* <Cards items = {actors} folderName="Actors"/> */}
       {filteredActors.map((actor) => (
         <li key={actor.id} className="mb-4 inline-block mr-4">
-          <Link href={`/Actors/${actor.id}`} className="no-underline">
+          <Link href={`/actors/${actor.id}`} className="no-underline">
             {actor.profile_path && (
               <img
                 src={`https://image.tmdb.org/t/p/w200/${actor.profile_path}`}
