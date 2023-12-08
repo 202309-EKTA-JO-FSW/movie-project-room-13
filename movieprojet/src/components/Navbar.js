@@ -39,7 +39,7 @@ function Navbar({onSearch}){
         setSelectedGenre(genre);
         router.push(`/movies/${selectedType}`);
       };
-   return (<nav style={{display:"flex", width:"100vw" ,justifyContent:"center", backgroundColor:"whitesmoke" }}>
+   return (<nav className={bg-teal-500} style={{display:"flex", width:"100vw" ,justifyContent:"center", backgroundColor:"whitesmoke" }}>
    <Link href="/" className="logo" style={{padding: "5px"}}>
 
 <img src="https://png.pngtree.com/png-clipart/20200225/ourlarge/pngtree-movie-icon-design-png-image_2153114.jpg" style={{width:"50px"}} />

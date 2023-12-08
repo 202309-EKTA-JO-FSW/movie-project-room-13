@@ -3,8 +3,7 @@ import { getLatestMovies } from "../../API"
 import { data } from "autoprefixer"
 import Link from 'next/link'
 import Navbar from "../Navbar"
-import Footer from "../Footer"
-
+import FinalFooter from "@/components/FinalFooter"
 
 const MovieList = () => {
   const [movies, setMovies] = useState([])
@@ -139,16 +138,10 @@ const MovieList = () => {
         </div>
        </div>
 
-  </div>
-
-
-
-
-
-         
+  </div>   
         ))}
      </div>
-     <Footer />
+     <FinalFooter />
     </div>
   )
 }

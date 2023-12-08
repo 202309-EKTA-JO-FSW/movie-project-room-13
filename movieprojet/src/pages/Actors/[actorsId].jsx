@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import FinalFooter from "@/components/FinalFooter";
 
 const ActorDetailPage = () => {
   const router = useRouter();
@@ -90,6 +91,7 @@ const ActorDetailPage = () => {
           <p>{actor.birthday}</p>
         </div>
       )}
+      <FinalFooter />
     </div>
   );
 };

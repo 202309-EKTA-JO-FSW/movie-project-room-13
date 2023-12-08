@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import React, { useState, useEffect } from 'react'
 import Navbar from "../Navbar";
+import FinalFooter from "@/components/FinalFooter";
 //import Footer from "../Footer";
 
 
@@ -151,7 +152,7 @@ const SinglePageMovie = () => {
         <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
             { mainCast?.map((cast) => (
             <li class="py-3 sm:py-4">
-              <a href={`/actors/${encodeURIComponent(cast.id)}`}>
+              <a href={`/Actors/${encodeURIComponent(cast.id)}`}>
                 <div class="flex items-center space-x-4">
                     <div class="flex-shrink-0">
                         <img src={`https://www.themoviedb.org/t/p/w138_and_h175_face/${cast.profile_path}`}
@@ -238,9 +239,10 @@ const SinglePageMovie = () => {
           </div>
         ))}
       </div>
+      
     </div>
 
-        
+    <FinalFooter />
       </>
 
         )
