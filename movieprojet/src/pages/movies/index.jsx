@@ -77,7 +77,14 @@ const MovieList = () => {
   return (
     <div >
            <Navbar onSearch={handleSearch}  onSelectGenre={handleGenreChange} onSelectType={handleTypeChange}  /> 
-      <h2>Playing Now</h2>
+      
+      <div class="playing-now-logo flex items-center space-x-2 p-4 bg-gray-800 text-white rounded-lg shadow-md">
+      
+  <div class="text-center flex-1">
+    <h3 class="text-lg font-caveat italic text-teal-300">LATEST MOVIES</h3>
+  </div>
+</div>
+
       <div className="grid grid-flow-row gap-8 text-neutral-600 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-40">
 
         {filteredMovies.map((movie) =>
