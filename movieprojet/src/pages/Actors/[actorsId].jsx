@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Navbar from "../Navbar";
+import FinalFooter from "@/components/FinalFooter";
 
 const ActorDetailPage = () => {
   const router = useRouter()
@@ -158,6 +159,7 @@ const ActorDetailPage = () => {
           </div>
         ))}
         </div>
+        <FinalFooter />
       </div>
 
         
