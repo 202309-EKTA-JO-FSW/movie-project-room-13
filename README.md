@@ -1,58 +1,127 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=13048712&assignment_repo_type=AssignmentRepo)
-# Movie Project
+# YouMove Website
 
-## Overview
-You have came so far and learnt a lot about frontend development thus far, congrats ! Now let us put your skills in use and create something amazing. As we have mentioned a lot while we are learning about web development, working with APIs to make our websites interactive sits at the core of frontend web development. 
-At the end, frontend websites work as interfaces that give us the ability to interact with data. All this data is coming from some form of an API.
+# Description 
+Welcome to YouMove website, where you can discover, explore, and fully immerse yourself in the world of movies! Our website is intended to be your go-to movie partner, providing a vast library of films and tailored suggestions based on your tastes.
 
-The API you will be interacting with is a movie API that can be used to retreive information about movies and actors. It is quite extensive and serves many purposes for your needs. In addition to that, it has quite a versatile searching mechanism that gives you the ability to reach for the information you need.
+What We Offer:
+Discover Movies: Dive into an extensive collection of movies spanning various genres, and different categories of filtering.Discover full details about your preferred movies, ranging from timeless masterpieces to the newest blockbusters.
 
-## How to make use of this WIKI?
 
-As you can see, the only thing you received from us is a bunch of `.md` (Markdown) files like the one you're reading now. We want you to learn to build your own projects from scratch and see how the process is done. So, we have created the following things in the wiki to help you out with the preparation:
+    Recommendations: Allow us to lead the way! Receive suited film recommendations from genres and other filtering options based on your preferences, making sure you never miss an interesting movie.
 
-1. Setup - This page contains the steps you need to setup the project. **Only one of you will do it, while the others watch and support them**
-2. Requirements - This page contains the requirements that you need to do for the project.
-3. Presentation - This page contains the requirements that you need to do when presenting.
+    In-depth Details: Discover deep information about films, such as trailers, cast bios, and story summaries. See a preview of each film's setting before hitting the play button.
 
-To make the best use of this Wiki, go first to the requirements, understand them, then go to the score guide, understand it, then finally head to the setup page so you can do the setup with everything in mind.
+    Popular and Top Rated: Keep up with the latest trends! Discover the highest-rated and most popular movies that people all over the world have seen to help you decide what to watch next.
 
-## Key takeaways 🎉
+    Upcoming Releases: Stay on top of things! With our carefully curated list of upcoming movie releases, you can get a sneak peek at the future and set your calendars for the next great films.
 
-If you finish this project you can be absolutely sure that you can work on any project in the future. Generally, you will be able to use the same tools and techniques you used here to build any website in the future.
+    Now Playing: Want to see a movie in a theater right now? Check out the latest releases to easily schedule your movie dates.
 
-#### Things you will practice while working on this project
+    Actor Details: Explore the worlds of your favored actors and actresses with Actor Details. Learn about  them.
 
-You will be able to practice:
+Our mission at YouMove is to make the magic of movies accessible to everyone. YouMove is here to improve your movie-watching experience, regardless of whether you're an avid moviegoer, a casual viewer, or someone who is just seeking entertainment.
 
-- Dividing tasks as components between the team and avoiding most conflict issues.
-- Using states and setters to change the state of the component.
-- Using props to pass data from one component to another.
-- Using static-site generation and server-side rendering to fetch data and add them to pages.
-- Preparing folder structure in a way that makes your, and everyone elses work easier.
-- Adding new dependencies and how to use them.
-- Reading the documentation of the packages you use.
-- Reading the documentation of APIs and how to understand them.
-- Using routes to navigate between pages.
-- Using local storage to store information.
-- Using UI Kits to make styling components easier.
 
-#### Concerns to avoid
+Let Us Hlep You to Get Started:
+- Browse through our vast collection of movies.
+- Find recommendations that are customized for you based on your choices.
+- Explore comprehensive movie details, such as cast bios, trailers, and story summaries.
+- Keep abreast of the newest releases, popular films, and forthcoming blockbusters.
+- Discover the worlds of the actors and actresses you adore. 
 
-The following thoughts are traps; steer away from them:
 
-- *`This project is huge! I don't think I'm going to be able to do it.`* From your previous experiences, you know for a fact that everything starts big in the beginning but when you plan things and work on them they usually are not as big and scary as you thought.
-- *`I don't know how to use [insert tool here] how am I going to deal with all of this?`* Again, don't worry. You have dealt with so many unknown things and just like you learned how to use them, you will be able to learn how to use any tool you want as long as you check its documentation.
-- *`[Right from the beginning] How am I going to fix the bonus topic?`* DON'T GO THERE UNLESS YOU FINISH THE MAIN REQUIREMENTS FIRST!
-- *`[After spending hours on an issue to fix it without reading the documentation or searching the issue on google] I will spend extra hours on this until I fix it`* This is a trap. You should always read the documentation and search for the solution.
-- *`I'm so tired now!!!😩 I've been trying to fix this bug for 3 hours!!!`* In times like these, consider steping away from your computer and doing something else like playing with your pet, watching something funny, looking outside your window and enjoying cool air.
+# Our Main Features:
+    - Our HomePage
+        In our Hompgage you can find a collection of playing-Now movies. The movies card will show a brief information about the movie before you click on it to take you to details-page that shows all you need to know about the movie.
+        
+            "Adding screenshot here"
 
-#### Confidence boosters
+    - Our Navbar:
+        We desigend our navbar as simple as possible to make it easy to reach your prefrances from genres, othe filterings and searching.
+                
+                "Adding screenshot here"
 
-In times of doubts remember these:
 
-- *`This project will be a huge addition to my already big list of projects that will increase my future prospects of getting hired`*
-- *`The internet is FULL of resources that any one can use to learn about anything.`*
-- *`I've worked on 3 projects. They seemed difficult in the beginning but I still aced them. I'm awesome!`*
-- *`3 months ago, my biggest issues and worries are how to write the correct class name to change an HTML element's color. Now, I'm dealing with bigger things because I've learned so much more. My current worries and issues will be my HTML and CSS of my future.`*
-- *`I'm not alone on this team. There are 2 more people who got my back.`*
+    -Our Filtering Results Page:
+
+    -Our Detailed Movie Page:
+        In this page you will find more details about the movie such as:
+            - The movie poster
+            - The movie title
+            - Overview of the movie
+            - A trailer section that has the movie trailer from youtube
+            - Release date
+            - Runtime
+            - Movie's Language
+            - The movie production company name and logo. 
+            - The movie rating and how many votes has it received            
+            - The main 5 actors of the movies in the credit section
+            - A related movies section which includes at least five related movies 
+                    
+                    "Adding screenshot here"
+
+
+    - Our Actors Page:
+        Here you can access to the actors Profile pages just by click on any of these actors cards
+                
+                "Adding screenshot here"
+
+
+    - Our Actor Profile Page 
+        Accessing this page will show you a vertiy information about your favorite actor such as:
+            - Actor picture
+            - Actor name
+            - Gender
+            - Popularity
+            - Birthday
+            - Biography
+                    
+                    "Adding screenshot here"
+
+# Technologies Used
+    - Frontend Framework and State Management:
+        Next.js: utilizing Next.js's capabilities to create a dynamic and effective front end. Its simplicity of usage and server-side rendering capabilities have been important in creating an interactive user experience.
+
+        useState and useEffect: Utilizing React's hooks, particularly useState for managing component-level state and useEffect for fetching and handling data from the themoviedb API.
+
+    - API Integration:
+        themoviedb API: Using the APIs for TheMovieDB to seamlessly fetch comprehensive movie data, including details, cast information, trailers, and more. Enabling users to access a vast array of movie information and recommendations.
+
+    - Styling:
+        Tailwind CSS: Employing Tailwind CSS for a streamlined and customizable styling approach. Its large library of pre-built components and utility-first approach have made it easier to create a UI that is both responsive and visually pleasing.
+
+    - Code Quality and Collaboration:
+        ESLint: Ensuring code consistency and identifying potential errors or problematic patterns in the codebase, promoting best practices and code quality across the project.
+
+        Prettier: Standardizing code formatting and ensuring a consistent code style throughout the development process. Prettier has streamlined the code formatting workflow for improved readability and maintainability.
+
+    - Version Control and Collaboration:
+        GitHub: utilizing GitHub as a platform for team collaboration helps with code review, issue tracking, version control, and milestone management. GitHub proved important in enabling effective project management and teamwork.
+
+    - Additional Tools and Extensions:
+        Other Extensions: Utilizing other extensions or tools to enhance the development workflow and productivity, ensuring a smooth and efficient development process.
+
+# Code Layout
+    This a small review on our code layout 
+
+    src/
+    ├─ pages/
+    │  ├─ index.jsx           // Home page
+    │   ├─ actors/
+    │      ├─ index.jsx        // Actors page
+    │      ├─ [actorId].jsx    // Actor Profile page  
+    │  ├─ movies/
+    │     ├─ index.jsx        // Movies page
+    │     ├─ [movieId].jsx    // Single movie page 
+    │      ├─ type/
+    │         ├─ [type].jsx      //Type Filterin Page 
+    │   ├─ Footer.jsx
+    │   ├─ Navbar/
+    │     ├─ Navbar.jsx
+    │
+    ├─ api/
+    │  ├─ API.js 
+
+# Our Great Team Members
+    From Room 13: 
+     Lin Ghalib - Noor Alrai - Lubna - Wajd Al-Kayyali
